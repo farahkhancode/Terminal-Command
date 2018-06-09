@@ -6,7 +6,6 @@ Questions
 sort commands.js returns the file sorted alphabetically by line.
 
 OUTPUT:
-
          break;
          break;
          commandLibrary.cat(userInputArray.slice(1));

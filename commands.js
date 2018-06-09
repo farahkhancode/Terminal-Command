@@ -31,7 +31,6 @@ function evaluateCmd(userInput) {
          break;
      }
   }
-  
 //where we will store the logic of our commands
 const commandLibrary = {
   //the echo command
