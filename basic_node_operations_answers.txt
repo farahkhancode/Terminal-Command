@@ -3,6 +3,7 @@ Questions
 1.Run the commands sort, wc and uniq on the commands.js file. Explain how they work and what the output was.
 
 
+
 sort commands.js returns the file sorted alphabetically by line.
 
 OUTPUT:

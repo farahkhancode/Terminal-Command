@@ -1,5 +1,4 @@
 const commands = require("./commands.js");
-
 //prompt the user for input
 process.stdout.write('prompt > ');
 // The stdin 'data' event triggers after a user types in a line
