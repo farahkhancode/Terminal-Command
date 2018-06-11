@@ -1,0 +1,83 @@
+QUESTIONS
+
+1.What is the difference between readdirSync and readdir?
+
+A:
+readdirSync is a synchronous blocking method that reads a directory which ensures that processes take place in order and the next one isn't started until the prior one is complete.
+
+readdir is an asynchronous and non-blocking method to read a directory which means actions can occur out of order and some processes can take place while others are in progress- they don't need to wait.
+
+
+2.What is the event loop and how does it handle asynchronous requests?
+
+
+A: An event loop is a  system that sequentially processes tasks from the event queue. If the event is asynchronous, Node asks the OS to notify it when the event is ready for processing, meanwhile it continues to process other events in the queue.
+
+3.Given the following code, specify whether the program is asynchronous and non-blocking or synchronous and blocking or synchronous and non-blocking.
+
+const fs = require('fs');
+const file = fs.readFileSync('foo.txt');
+console.log(file.toString());
+
+****This code is synchronous and blocking.
+
+4.Given the following code, specify whether the program is asynchronous and non-blocking or synchronous and blocking or synchronous and non-blocking.
+
+const fs = require('fs');
+fs.readFile('foo.txt', (err, file) => {
+ if (err) throw err;
+ console.log(file.toString());
+});
+console.log("test");
+
+
+****This code is asynchronous and non-blocking.
+
+
+5.In what order will the console.log statements execute in the code below?
+
+const fs = require('fs');
+fs.readFile('foo.txt', (err, file) => {
+ if (err) throw err;
+ console.log("A");
+ console.log("B")
+});
+console.log("C");
+
+
+Since this is asynchronous and non-blocking,they will all take place almost simultanouesly.
+
+
+
+6.setTimeout is a JavaScript function which calls a function after a set amount of milliseconds. Given the following code, explain in what sequence the functions will run and why.
+
+function greeting() {
+ setTimeout(() => {
+   console.log("friend");
+ }, 100);
+}
+
+function hello(){
+ console.log("hello");
+}
+
+greeting();
+hello();
+
+
+Function Hello() will run first because Function greeting must wait 100 ms before running.
+
+
+7.Create a function which utilizes a callback. Make sure to add console.log statements to understand when your callback function is called.
+
+
+function cooking(dish, callback){
+ console.log('started my' + dish + 'cooking');
+ callback();
+}
+
+function alertFinished(){
+  console.log('Finished my cooking');
+}
+
+cooking('spaghetti', alertFinished);
